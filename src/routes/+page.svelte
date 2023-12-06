@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { HTMLImgAttributes } from "svelte/elements"
-
 	type State = "Idle" | "Fetching" | "Completed"
 
 	let state: State = "Idle"

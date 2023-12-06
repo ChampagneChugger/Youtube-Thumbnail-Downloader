@@ -26,20 +26,6 @@
 
 		state = "Completed"
 	}
-
-	async function download(event: Event) {
-		const url: string = (event.target as HTMLImageElement).src
-
-		const response = await fetch(url, {
-			mode: "cors"
-		})
-
-		const blob = await response.blob()
-
-		const href = URL.createObjectURL(blob)
-
-		console.log(blob)
-	}
 </script>
 
 <h1>YouTube Thumbnail Downloader</h1>
@@ -50,8 +36,12 @@
 		<p>Fetching data...</p>
 	{:else}
 		<div class="images">
-			<img src={thumbnailL} alt={videoTitle} on:click={download} />
-			<img src={thumbnailS} alt={videoTitle} />
+			<a href={thumbnailL}>
+				<img src={thumbnailL} alt={videoTitle} />
+			</a>
+			<a href={thumbnailS}>
+				<img src={thumbnailS} alt={videoTitle} />
+			</a>
 		</div>
 	{/if}
 {/if}
